@@ -1,0 +1,24 @@
+/* resources/css/admin.css */
+label {
+    min-width: 150px;
+    display: inline-block;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+}

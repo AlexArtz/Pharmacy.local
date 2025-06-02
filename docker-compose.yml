@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Gfhjkm
+      MYSQL_DATABASE: pharmacy
+    networks:
+      - my-app-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pharmacy-app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - my-app-network
+networks:
+  my-app-network:
+    driver: bridge
+volumes:
+  mysql-data:
